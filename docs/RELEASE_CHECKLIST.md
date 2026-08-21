@@ -26,10 +26,10 @@ Store selected images in `docs/screenshots/` and add them to the README only aft
 
 ## Final verification
 
-- [x] Hosted application is public and uses HTTPS
+- [x] Hosted application is owner-only and uses HTTPS
 - [x] YouTube key is restricted and stored as a secret
 - [x] Live YouTube comparison works
 - [x] Private project ownership is enforced server-side
 - [x] API routes are excluded from offline caching
 - [ ] Review the LinkedIn article in your own voice
-- [ ] Publish the LinkedIn article with the live application and GitHub links
+- [ ] Publish the LinkedIn article with the GitHub link

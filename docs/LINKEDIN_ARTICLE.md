@@ -52,8 +52,6 @@ This project strengthened my understanding of:
 
 ## Try the project
 
-Live application: https://influencertrust-ai.kashvivelmurugan.chatgpt.site/
-
 GitHub: https://github.com/KaviyaVelmurugan/influencertrust-ai
 
 I would welcome feedback from people working in MarTech, influencer marketing, analytics, responsible AI, and product engineering—especially on which evidence should matter most when brands compare creators.
