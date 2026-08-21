@@ -113,6 +113,8 @@ Use **Analyze raw data** with `campaigns.csv` and `influencers.csv` to validate 
 
 Use **Check captions** with `campaigns.csv` and `campaign_submissions.csv` to audit required hashtags, mentions, links, disclosures, campaign-topic coverage, and prohibited terms. The dashboard returns evidence-based statuses, correction suggestions, and a creator brief.
 
+Use **Download rankings CSV** for a reusable creator table. Use **Save report as PDF** to open the branded print layout, then select **Save as PDF** in the browser dialog. The report includes campaign KPIs, rankings, ROI scenarios, available compliance findings, methodology, and limitations.
+
 ## License
 
 The original source code in this repository is licensed under the [MIT License](LICENSE). Third-party datasets, models, platform content, and trademarks remain subject to their respective licenses and terms.
