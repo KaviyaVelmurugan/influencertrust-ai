@@ -40,5 +40,7 @@ test("keeps interactive campaign and scenario controls", async () => {
   assert.match(page, /Download rankings CSV/);
   assert.match(page, /Save report as PDF/);
   assert.match(page, /window\.print/);
+  assert.match(page, /Saved projects/);
+  assert.match(page, /\/api\/projects/);
   assert.match(layout, /social-preview\.png/);
 });

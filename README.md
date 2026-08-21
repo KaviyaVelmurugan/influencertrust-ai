@@ -115,6 +115,8 @@ Use **Check captions** with `campaigns.csv` and `campaign_submissions.csv` to au
 
 Use **Download rankings CSV** for a reusable creator table. Use **Save report as PDF** to open the branded print layout, then select **Save as PDF** in the browser dialog. The report includes campaign KPIs, rankings, ROI scenarios, available compliance findings, methodology, and limitations.
 
+Use **Projects** to sign in with ChatGPT and privately save, reload, or delete complete dashboard workspaces. Ownership is enforced by the server, and each account can access only its own project records.
+
 ## License
 
 The original source code in this repository is licensed under the [MIT License](LICENSE). Third-party datasets, models, platform content, and trademarks remain subject to their respective licenses and terms.
