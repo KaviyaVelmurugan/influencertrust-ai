@@ -1,103 +1,44 @@
 # InfluencerTrust AI
 
-InfluencerTrust AI is an explainable MarTech platform for evaluating influencer authenticity, matching creators to campaign briefs, checking sponsored-content requirements, and estimating campaign ROI.
+InfluencerTrust AI is an explainable MarTech application for screening creators, comparing live YouTube performance, checking campaign requirements, and exploring ROI scenarios. It supports decisions; it does not claim to prove fraud or guarantee campaign outcomes.
 
-The project is being developed as an original, portfolio-quality application. It uses public, synthetic, or user-uploaded data for its first release so that the demo remains reproducible without restricted social-media API access.
+**Release:** v1.0.0
 
-## Project status
+**Live application:** https://influencertrust-ai.kashvivelmurugan.chatgpt.site/
 
-**Phase 7 — ROI scenario simulator**
+**License:** [MIT](LICENSE)
 
-The MVP requirements, boundaries, success criteria, and development roadmap are documented in [`docs/PROJECT_REQUIREMENTS.md`](docs/PROJECT_REQUIREMENTS.md) and [`docs/ROADMAP.md`](docs/ROADMAP.md).
+## Why this project exists
 
-The first data contract is documented in [`docs/DATA_DICTIONARY.md`](docs/DATA_DICTIONARY.md). The committed sample data is deterministic and entirely synthetic.
+Influencer selection often combines inconsistent spreadsheets, vanity metrics, subjective judgment, and uncertain financial assumptions. InfluencerTrust AI brings those steps into one reproducible workflow while exposing how every score is calculated and where evidence is missing.
 
-## MVP capabilities
+## v1.0 capabilities
 
-- Import and validate influencer data from CSV
-- Calculate transparent engagement and efficiency metrics
-- Identify suspicious activity and explain the risk signals
-- Match influencers to a campaign brief
-- Rank candidates using configurable, explainable scoring
-- Check captions for hashtags, mentions, links, disclosures, and prohibited terms
-- Simulate campaign revenue, ROI, and ROAS under multiple scenarios
-- Compare candidates in a web dashboard
+- Analyze campaign and influencer CSV files locally in the browser
+- Rank creators using campaign fit, quality, risk signals, and cost efficiency
+- Retrieve current public channel and recent-video statistics from YouTube Data API v3
+- Compare multiple YouTube channels with objective-aware scoring
+- Show engagement, reach efficiency, consistency, activity, and evidence confidence
+- Audit captions for disclosures, hashtags, mentions, links, and prohibited terms
+- Explore conservative, expected, and optimistic ROI scenarios
+- Export rankings and YouTube shortlists to CSV
+- Generate print-ready campaign reports for PDF saving
+- Sign in with ChatGPT to save private project workspaces
+- Install the dashboard as a Progressive Web App
 
-## Planned technology
+## How scoring works
 
-- **Frontend:** Next.js and TypeScript
-- **Backend:** FastAPI and Python
-- **Database:** PostgreSQL with pgvector when semantic search is introduced
-- **Analytics and ML:** pandas, scikit-learn, and sentence embeddings
-- **Testing:** pytest and frontend component/end-to-end tests
-- **Packaging:** Docker Compose
+Connected YouTube channels are screened using public observations from up to 10 recent videos. Awareness campaigns emphasize reach, conversion campaigns emphasize engagement, and traffic campaigns balance both. The dashboard exposes every component and weight. Demographics, brand safety, content relevance, and conversion attribution remain explicit human-review requirements.
 
-## Responsible use
+See [metric definitions](docs/METRICS.md), [matching and ranking](docs/MATCHING_AND_RANKING.md), and [data connectors](docs/DATA_CONNECTORS.md).
 
-Authenticity output will be presented as a risk estimate, not proof that a creator is fraudulent. Recommendations will expose their supporting factors, data coverage, uncertainty, and model version. Sensitive demographic inference is outside the MVP.
+## Architecture
 
-## Documentation
+The release uses a Next.js/TypeScript Progressive Web App with Cloudflare-compatible server routes, YouTube Data API v3, Sign in with ChatGPT, and a D1-backed private project store. The Python analytics package remains available for reproducible batch reports and tests.
 
-- [Project requirements](docs/PROJECT_REQUIREMENTS.md)
-- [Development roadmap](docs/ROADMAP.md)
-- [Decision log](docs/DECISIONS.md)
-- [Data dictionary](docs/DATA_DICTIONARY.md)
-- [Metric definitions](docs/METRICS.md)
-- [Authenticity-risk design](docs/AUTHENTICITY_RISK.md)
-- [Campaign matching and ranking](docs/MATCHING_AND_RANKING.md)
-- [Caption compliance](docs/COMPLIANCE.md)
-- [ROI scenario simulator](docs/ROI_SIMULATOR.md)
-- [Automated browser analysis](docs/AUTOMATED_PIPELINE.md)
-- [Sample-data notes](data/README.md)
+See the [architecture guide](docs/ARCHITECTURE.md) and [security guide](SECURITY.md).
 
-## Generate baseline reports
-
-```powershell
-$env:PYTHONPATH="src"
-python scripts/generate_baseline_reports.py
-```
-
-The generated reports separate influencer-level attention metrics, outcome-level funnel metrics, and correctly aggregated campaign metrics.
-
-## Generate authenticity-risk report
-
-```powershell
-$env:PYTHONPATH="src"
-python scripts/generate_authenticity_report.py
-```
-
-The report contains rule-based screening signals, evidence coverage, limitations, and a versioned explanation. It must not be interpreted as proof of fraud.
-
-## Generate campaign rankings
-
-```powershell
-$env:PYTHONPATH="src"
-python scripts/generate_campaign_rankings.py
-```
-
-The ranking report exposes campaign-fit, authenticity, engagement-quality, and cost-efficiency components with their exact weighted contributions.
-
-## Generate caption-compliance report
-
-```powershell
-$env:PYTHONPATH="src"
-python scripts/generate_compliance_report.py
-```
-
-The report separates exact campaign requirements from lexical topic interpretation and includes evidence and limitations for every submission.
-
-## Generate ROI simulations
-
-```powershell
-$env:PYTHONPATH="src"
-python scripts/generate_roi_simulation.py
-```
-
-The simulator produces conservative, expected, and optimistic funnel outcomes plus contribution-margin sensitivity analysis. Scenarios are assumptions, not forecast probabilities.
-
-## Open the web dashboard
-
-The responsive dashboard combines campaign selection, explainable creator rankings, compliance health, and interactive ROI scenarios.
+## Run locally
 
 ```powershell
 cd web
@@ -105,26 +46,53 @@ npm install
 npm run dev
 ```
 
-Open `http://localhost:3000` in a browser. The hosted version uses the same interface through a normal public link.
+Open `http://localhost:3000`. For live YouTube data, create `web/.env.local`:
 
-Use **Import reports** to load `campaign_rankings.csv` and `roi_scenarios.csv`. Imported values are processed locally in the browser and remain available until the page is refreshed or reset.
+```text
+YOUTUBE_API_KEY=your_restricted_key
+```
 
-Use **Analyze raw data** with `campaigns.csv` and `influencers.csv` to validate inputs, calculate campaign fit, authenticity, engagement quality and cost efficiency, rank creators, and generate three ROI scenarios automatically. This MVP analysis runs locally in the browser and does not transmit the selected files.
+Environment files are ignored by Git. Restrict the key to YouTube Data API v3 and never commit it.
 
-Use **Check captions** with `campaigns.csv` and `campaign_submissions.csv` to audit required hashtags, mentions, links, disclosures, campaign-topic coverage, and prohibited terms. The dashboard returns evidence-based statuses, correction suggestions, and a creator brief.
+## Run tests
 
-Use **Download rankings CSV** for a reusable creator table. Use **Save report as PDF** to open the branded print layout, then select **Save as PDF** in the browser dialog. The report includes campaign KPIs, rankings, ROI scenarios, available compliance findings, methodology, and limitations.
+```powershell
+cd web
+npm test
+```
 
-Use **Projects** to sign in with ChatGPT and privately save, reload, or delete complete dashboard workspaces. Ownership is enforced by the server, and each account can access only its own project records.
+For the Python analytics tests:
 
-Use **Connect YouTube** to retrieve public channel totals and summarize up to 10 recent public videos through the official YouTube Data API v3. The connector displays its source and refresh time. A server-side `YOUTUBE_API_KEY` is required; setup and responsible-use limits are documented in [Data connectors](docs/DATA_CONNECTORS.md).
+```powershell
+$env:PYTHONPATH="src"
+pytest
+```
 
-Connected channels receive an explainable campaign-candidate score. The selected objective controls the weights applied to engagement, reach efficiency, view consistency, and evidence coverage. The recommendation remains decision support and explicitly identifies evidence that still requires human review.
+## Documentation
 
-Add multiple channels to create a live comparison shortlist. Rankings recalculate when the active campaign changes, and the comparison can be exported to CSV. Selecting **Save current** in Projects explicitly stores the shortlist and its public observations in the user's private workspace so it can be restored later.
+- [Architecture](docs/ARCHITECTURE.md)
+- [Project requirements](docs/PROJECT_REQUIREMENTS.md)
+- [Development roadmap](docs/ROADMAP.md)
+- [Decision log](docs/DECISIONS.md)
+- [Data dictionary](docs/DATA_DICTIONARY.md)
+- [Data connectors](docs/DATA_CONNECTORS.md)
+- [Metric definitions](docs/METRICS.md)
+- [Authenticity-risk design](docs/AUTHENTICITY_RISK.md)
+- [Campaign matching and ranking](docs/MATCHING_AND_RANKING.md)
+- [Caption compliance](docs/COMPLIANCE.md)
+- [ROI simulator](docs/ROI_SIMULATOR.md)
+- [Automated analysis pipeline](docs/AUTOMATED_PIPELINE.md)
+- [Release checklist](docs/RELEASE_CHECKLIST.md)
+- [LinkedIn article](docs/LINKEDIN_ARTICLE.md)
 
-The hosted dashboard is also an installable Progressive Web App. Supported browsers show **Install app**, allowing the same secure web application to open in a standalone desktop or mobile window while remaining available through its public URL.
+## Responsible use
+
+Scores are decision-support signals, not facts about a person's character or proof of fraudulent behavior. Financial outputs are sensitivity scenarios rather than forecasts. Review creator content, audience evidence, contracts, disclosures, brand safety, and campaign attribution before making a commercial decision.
+
+## Contributing and security
+
+Read [CONTRIBUTING.md](CONTRIBUTING.md) before proposing changes. Report suspected vulnerabilities using the private process described in [SECURITY.md](SECURITY.md); do not publish secrets or exploit details in a public issue.
 
 ## License
 
-The original source code in this repository is licensed under the [MIT License](LICENSE). Third-party datasets, models, platform content, and trademarks remain subject to their respective licenses and terms.
+Original source code is licensed under the [MIT License](LICENSE). YouTube content, platform data, trademarks, third-party datasets, and services remain subject to their respective terms.

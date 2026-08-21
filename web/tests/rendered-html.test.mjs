@@ -21,6 +21,7 @@ test("server-renders the campaign dashboard", async () => {
   assert.match(html, /Recommended creators/);
   assert.match(html, /ROI forecast/);
   assert.match(html, /PulseFit Challenge/);
+  assert.match(html, /Release v1\.0\.0/);
 });
 
 test("keeps interactive campaign and scenario controls", async () => {
