@@ -4,8 +4,6 @@ InfluencerTrust AI is an explainable MarTech application for screening creators,
 
 **Release:** v1.0.0
 
-**Live application:** https://influencertrust-ai.kashvivelmurugan.chatgpt.site/
-
 **License:** [MIT](LICENSE)
 
 ## Why this project exists
