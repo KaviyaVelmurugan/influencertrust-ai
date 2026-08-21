@@ -67,3 +67,15 @@ This file records important product and engineering decisions so that the projec
 **Decision:** Report the percentage of expected evidence present, not a model-confidence percentage.
 
 **Reason:** A rule score is not a calibrated probability. Calling data coverage “confidence” would mislead users about certainty.
+
+## D-012: Start campaign matching with a lexical baseline
+
+**Decision:** Rank topic relevance using visible token overlap and language matching before introducing embeddings.
+
+**Reason:** We can inspect every match and later measure whether a semantic model produces a genuine improvement over this baseline.
+
+## D-013: Normalize engagement and cost within platforms
+
+**Decision:** Convert engagement rate and estimated cost per engagement into platform-specific percentiles.
+
+**Reason:** Raw platform metrics are not directly comparable because platforms use different content formats, discovery systems, and view definitions.

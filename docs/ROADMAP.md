@@ -47,6 +47,8 @@
 
 ## Phase 5 — Campaign matching and ranking
 
+**Status:** Complete
+
 - Represent campaign briefs and influencer content
 - Build a lexical baseline before semantic embeddings
 - Add weighted, configurable ranking
