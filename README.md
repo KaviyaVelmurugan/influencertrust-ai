@@ -123,6 +123,8 @@ Connected channels receive an explainable campaign-candidate score. The selected
 
 Add multiple channels to create a live comparison shortlist. Rankings recalculate when the active campaign changes, and the comparison can be exported to CSV. Selecting **Save current** in Projects explicitly stores the shortlist and its public observations in the user's private workspace so it can be restored later.
 
+The hosted dashboard is also an installable Progressive Web App. Supported browsers show **Install app**, allowing the same secure web application to open in a standalone desktop or mobile window while remaining available through its public URL.
+
 ## License
 
 The original source code in this repository is licensed under the [MIT License](LICENSE). Third-party datasets, models, platform content, and trademarks remain subject to their respective licenses and terms.

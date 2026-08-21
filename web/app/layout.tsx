@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -24,7 +24,11 @@ export const metadata: Metadata = {
     icon: "/favicon.svg",
     shortcut: "/favicon.svg",
   },
+  manifest: "/manifest.webmanifest",
+  appleWebApp: {capable:true,title:"InfluencerTrust AI",statusBarStyle:"default"},
 };
+
+export const viewport:Viewport={themeColor:"#6847ee"};
 
 export default function RootLayout({
   children,

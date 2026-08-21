@@ -9,7 +9,7 @@ const average=(values:number[])=>values.length?values.reduce((sum,value)=>sum+va
 async function youtube(path:string,params:Record<string,string>,key:string){
   const url=new URL(`https://www.googleapis.com/youtube/v3/${path}`);
   Object.entries({...params,key}).forEach(([name,value])=>url.searchParams.set(name,value));
-  const response=await fetch(url,{headers:{accept:"application/json"}});
+  const response=await fetch(url,{headers:{accept:"application/json"},signal:AbortSignal.timeout(8000)});
   const body=await response.json() as {items?:ApiItem[];error?:{message?:string}};
   if(!response.ok)throw new Error(body.error?.message||`YouTube returned ${response.status}`);
   return body.items||[];
@@ -30,6 +30,6 @@ export async function GET(request:Request){
     const views=videos.map(video=>number(video.statistics?.viewCount)),likes=videos.map(video=>number(video.statistics?.likeCount)),comments=videos.map(video=>number(video.statistics?.commentCount));
     const avgViews=average(views),avgLikes=average(likes),avgComments=average(comments),engagementRate=avgViews?((avgLikes+avgComments)/avgViews)*100:0;
     const statistics=channel.statistics||{},snippet=channel.snippet||{},fetchedAt=new Date().toISOString();
-    return Response.json({source:"youtube_data_api_v3",fetchedAt,channel:{id:channel.id,title:snippet.title,description:snippet.description,customUrl:snippet.customUrl,subscribers:number(statistics.subscriberCount),videoCount:number(statistics.videoCount),totalViews:number(statistics.viewCount),thumbnail:snippet.thumbnails?.default?.url},metrics:{sampleSize:videos.length,avgViews,avgLikes,avgComments,engagementRatePct:engagementRate},recentVideos:videos.map(video=>({id:video.id,title:video.snippet?.title,publishedAt:video.snippet?.publishedAt,views:number(video.statistics?.viewCount),likes:number(video.statistics?.likeCount),comments:number(video.statistics?.commentCount)}))});
-  }catch(error){return Response.json({error:error instanceof Error?error.message:"YouTube data could not be loaded"},{status:502});}
+    return Response.json({source:"youtube_data_api_v3",fetchedAt,channel:{id:channel.id,title:snippet.title,description:snippet.description,customUrl:snippet.customUrl,subscribers:number(statistics.subscriberCount),videoCount:number(statistics.videoCount),totalViews:number(statistics.viewCount),thumbnail:snippet.thumbnails?.default?.url},metrics:{sampleSize:videos.length,avgViews,avgLikes,avgComments,engagementRatePct:engagementRate},recentVideos:videos.map(video=>({id:video.id,title:video.snippet?.title,publishedAt:video.snippet?.publishedAt,views:number(video.statistics?.viewCount),likes:number(video.statistics?.likeCount),comments:number(video.statistics?.commentCount)}))},{headers:{"Cache-Control":"private, max-age=300"}});
+  }catch{return Response.json({error:"YouTube data is temporarily unavailable. Please try again."},{status:502,headers:{"Cache-Control":"no-store"}});}
 }

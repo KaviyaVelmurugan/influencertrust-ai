@@ -52,6 +52,11 @@ test("keeps interactive campaign and scenario controls", async () => {
   assert.match(page, /payload:\{campaigns,id,scenario,complianceResults,brief,youtubeChannels\}/);
   assert.match(page, /setYoutubeChannels\(project\.payload\.youtubeChannels/);
   assert.match(layout, /social-preview\.png/);
+  assert.match(layout, /manifest\.webmanifest/);
+  assert.match(page, /serviceWorker\.register/);
+  assert.match(page, /beforeinstallprompt/);
+  assert.match(page, /Install app/);
+  assert.match(page, /AbortController/);
 });
 
 test("protects persisted project payloads", async () => {
