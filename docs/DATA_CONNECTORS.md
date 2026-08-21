@@ -14,3 +14,9 @@ Without this server-side secret, the connector returns a clear `connector_not_co
 ## Provenance and limitations
 
 Connected results display their source and refresh timestamp. Channel-level totals and recent-video statistics are public API observations, not guaranteed campaign attribution. Private analytics, audience demographics, watch time, and conversions require creator authorization and are deliberately not inferred.
+
+## Explainable campaign screening
+
+After connection, the dashboard calculates a campaign-candidate score from four observable components: recent-video engagement, average-view reach relative to subscribers, view consistency, and the available sample size. Weights change with the selected objective: awareness emphasizes reach, conversions emphasize engagement, and traffic balances both.
+
+The result is a screening recommendation—not an automatic hiring decision. It intentionally excludes inferred demographics, unverified authenticity claims, subjective brand safety, and conversion attribution.
