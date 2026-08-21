@@ -79,3 +79,15 @@ This file records important product and engineering decisions so that the projec
 **Decision:** Convert engagement rate and estimated cost per engagement into platform-specific percentiles.
 
 **Reason:** Raw platform metrics are not directly comparable because platforms use different content formats, discovery systems, and view definitions.
+
+## D-014: Separate deterministic compliance from interpretation
+
+**Decision:** Hashtags, mentions, links, disclosures, and prohibited terms use exact checks; topic coverage is labelled as lexical interpretation.
+
+**Reason:** Users should be able to distinguish objective missing elements from uncertain language understanding.
+
+## D-015: Treat configured brand safety as narrower than legal compliance
+
+**Decision:** Call the output campaign-rule compliance and include explicit legal and multimodal limitations.
+
+**Reason:** A caption checker cannot establish compliance across jurisdictions or inspect claims made in images, audio, video, or linked pages.

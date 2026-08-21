@@ -36,9 +36,9 @@ function toCsv(headers, rows) {
 }
 
 const campaigns = [
-  ["CAM-001", "EcoGlow Summer Launch", "awareness", "Plant-based SPF skincare", "India", "en", "skincare|sustainability|summer", "skin whitening|competitor-x", "#EcoGlow|#SummerSkin", "@ecoglow", "#ad", 500000, 1800, "2026-09-01", "2026-09-30", "INR"],
-  ["CAM-002", "PulseFit Challenge", "conversions", "At-home fitness membership", "India", "en", "fitness|wellness|home workout", "unsafe weight loss|steroids", "#PulseFit30", "@pulsefit", "#sponsored", 750000, 2999, "2026-10-01", "2026-10-31", "INR"],
-  ["CAM-003", "WanderLite Weekends", "traffic", "Affordable weekend travel packages", "India", "en", "travel|budget trips|local experiences", "dangerous travel|trespassing", "#WanderLite", "@wanderlite", "Paid partnership", 600000, 12500, "2026-11-01", "2026-11-30", "INR"],
+  ["CAM-001", "EcoGlow Summer Launch", "awareness", "Plant-based SPF skincare", "India", "en", "skincare|sustainability|summer", "skin whitening|competitor-x", "#EcoGlow|#SummerSkin", "@ecoglow", "https://example.com/ecoglow", "#ad", 500000, 1800, "2026-09-01", "2026-09-30", "INR"],
+  ["CAM-002", "PulseFit Challenge", "conversions", "At-home fitness membership", "India", "en", "fitness|wellness|home workout", "unsafe weight loss|steroids", "#PulseFit30", "@pulsefit", "https://example.com/pulsefit", "#sponsored", 750000, 2999, "2026-10-01", "2026-10-31", "INR"],
+  ["CAM-003", "WanderLite Weekends", "traffic", "Affordable weekend travel packages", "India", "en", "travel|budget trips|local experiences", "dangerous travel|trespassing", "#WanderLite", "@wanderlite", "https://example.com/wanderlite", "Paid partnership", 600000, 12500, "2026-11-01", "2026-11-30", "INR"],
 ];
 
 const categories = ["beauty", "fitness", "travel", "food", "technology", "fashion"];
@@ -131,7 +131,7 @@ for (let index = 0; index < 12; index += 1) {
   const impressions = integer(18000, 480000);
   const clicks = Math.round(impressions * (0.008 + random() * 0.035));
   const conversions = Math.round(clicks * (0.012 + random() * 0.065));
-  const averageOrderValue = campaign[12];
+  const averageOrderValue = campaign[13];
   outcomes.push([
     `OUT-${String(index + 1).padStart(3, "0")}`,
     campaign[0],
@@ -146,10 +146,37 @@ for (let index = 0; index < 12; index += 1) {
   ]);
 }
 
+const submissionTopics = {
+  "CAM-001": "A summer skincare routine featuring sustainable product choices",
+  "CAM-002": "A fitness and wellness home workout challenge",
+  "CAM-003": "A budget travel guide focused on local experiences",
+};
+const submissions = outcomes.map((outcome, index) => {
+  const campaign = campaigns.find((item) => item[0] === outcome[1]);
+  const variant = index % 4;
+  const required = `${campaign[8].replaceAll("|", " ")} ${campaign[9].replaceAll("|", " ")} ${campaign[10]}`;
+  let caption;
+  if (variant === 0) {
+    caption = `${submissionTopics[campaign[0]]}. ${required} ${campaign[11]}`;
+  } else if (variant === 1) {
+    caption = `${submissionTopics[campaign[0]]}. ${required}`;
+  } else if (variant === 2) {
+    caption = `${submissionTopics[campaign[0]]}. ${required} ${campaign[11]} ${campaign[7].split("|")[0]}`;
+  } else {
+    caption = `Sharing a quick update with my audience. ${campaign[8].split("|")[0]}`;
+  }
+  return [
+    `SUB-${String(index + 1).padStart(3, "0")}`,
+    outcome[1],
+    outcome[2],
+    caption,
+  ];
+});
+
 const datasets = [
   {
     filename: "campaigns.csv",
-    headers: ["campaign_id", "campaign_name", "objective", "product_description", "target_location", "target_language", "target_topics", "prohibited_terms", "required_hashtags", "required_mentions", "required_disclosure", "budget", "average_order_value", "start_date", "end_date", "currency"],
+    headers: ["campaign_id", "campaign_name", "objective", "product_description", "target_location", "target_language", "target_topics", "prohibited_terms", "required_hashtags", "required_mentions", "required_links", "required_disclosure", "budget", "average_order_value", "start_date", "end_date", "currency"],
     rows: campaigns,
   },
   {
@@ -166,6 +193,11 @@ const datasets = [
     filename: "outcomes.csv",
     headers: ["outcome_id", "campaign_id", "influencer_id", "impressions", "clicks", "conversions", "attributed_revenue", "influencer_fee", "production_cost", "currency"],
     rows: outcomes,
+  },
+  {
+    filename: "campaign_submissions.csv",
+    headers: ["submission_id", "campaign_id", "influencer_id", "caption"],
+    rows: submissions,
   },
 ];
 

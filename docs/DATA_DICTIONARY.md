@@ -17,6 +17,8 @@ erDiagram
     INFLUENCER ||--o{ POST : publishes
     CAMPAIGN ||--o{ OUTCOME : produces
     INFLUENCER ||--o{ OUTCOME : participates_in
+    CAMPAIGN ||--o{ CAMPAIGN_SUBMISSION : defines_rules_for
+    INFLUENCER ||--o{ CAMPAIGN_SUBMISSION : submits
 ```
 
 ## `campaigns.csv`
@@ -33,6 +35,7 @@ erDiagram
 | `prohibited_terms` | pipe-separated text | Disallowed claims, themes, or competitors |
 | `required_hashtags` | pipe-separated text | Hashtags required in sponsored content |
 | `required_mentions` | pipe-separated text | Accounts required in sponsored content |
+| `required_links` | pipe-separated text | Exact campaign destinations required in content |
 | `required_disclosure` | string | Required advertising disclosure text |
 | `budget` | decimal | Total campaign budget in `currency` |
 | `average_order_value` | decimal | Expected revenue per conversion |
@@ -92,6 +95,15 @@ erDiagram
 | `production_cost` | decimal | Additional content-production cost |
 | `currency` | enum | Currency shared by revenue and costs |
 
+## `campaign_submissions.csv`
+
+| Column | Type | Meaning |
+|---|---|---|
+| `submission_id` | string | Unique content-submission identifier |
+| `campaign_id` | foreign key | References `campaigns.csv` |
+| `influencer_id` | foreign key | References `influencers.csv` |
+| `caption` | string | Proposed or submitted campaign caption |
+
 ## Validation rules
 
 - Required files and columns must exist.
@@ -103,5 +115,6 @@ erDiagram
 - Conversions cannot exceed clicks.
 - Post and outcome influencer IDs must exist in `influencers.csv`.
 - Outcome campaign IDs must exist in `campaigns.csv`.
+- Submission campaign and influencer IDs must reference existing records.
 
 These rules verify structural plausibility. They do not prove that uploaded source data is truthful.

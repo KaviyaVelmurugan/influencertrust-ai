@@ -59,6 +59,8 @@
 
 ## Phase 6 — Caption compliance
 
+**Status:** Complete
+
 - Implement deterministic hashtag, mention, link, and disclosure checks
 - Add prohibited-term detection
 - Add semantic requirement matching

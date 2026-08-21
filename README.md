@@ -6,7 +6,7 @@ The project is being developed as an original, portfolio-quality application. It
 
 ## Project status
 
-**Phase 5 — Campaign matching and explainable ranking**
+**Phase 6 — Caption compliance and brand-safety checks**
 
 The MVP requirements, boundaries, success criteria, and development roadmap are documented in [`docs/PROJECT_REQUIREMENTS.md`](docs/PROJECT_REQUIREMENTS.md) and [`docs/ROADMAP.md`](docs/ROADMAP.md).
 
@@ -45,6 +45,7 @@ Authenticity output will be presented as a risk estimate, not proof that a creat
 - [Metric definitions](docs/METRICS.md)
 - [Authenticity-risk design](docs/AUTHENTICITY_RISK.md)
 - [Campaign matching and ranking](docs/MATCHING_AND_RANKING.md)
+- [Caption compliance](docs/COMPLIANCE.md)
 - [Sample-data notes](data/README.md)
 
 ## Generate baseline reports
@@ -73,6 +74,15 @@ python scripts/generate_campaign_rankings.py
 ```
 
 The ranking report exposes campaign-fit, authenticity, engagement-quality, and cost-efficiency components with their exact weighted contributions.
+
+## Generate caption-compliance report
+
+```powershell
+$env:PYTHONPATH="src"
+python scripts/generate_compliance_report.py
+```
+
+The report separates exact campaign requirements from lexical topic interpretation and includes evidence and limitations for every submission.
 
 ## License
 

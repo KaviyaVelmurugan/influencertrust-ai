@@ -82,6 +82,7 @@ SCHEMAS: dict[str, dict[str, Callable[[str], object]]] = {
         "prohibited_terms": _text,
         "required_hashtags": _text,
         "required_mentions": _text,
+        "required_links": _text,
         "required_disclosure": _text,
         "budget": _number(),
         "average_order_value": _number(),
@@ -132,6 +133,12 @@ SCHEMAS: dict[str, dict[str, Callable[[str], object]]] = {
         "production_cost": _number(),
         "currency": _choice("INR", "USD", "EUR", "GBP"),
     },
+    "campaign_submissions.csv": {
+        "submission_id": _text,
+        "campaign_id": _text,
+        "influencer_id": _text,
+        "caption": _text,
+    },
 }
 
 PRIMARY_KEYS = {
@@ -139,6 +146,7 @@ PRIMARY_KEYS = {
     "influencers.csv": "influencer_id",
     "posts.csv": "post_id",
     "outcomes.csv": "outcome_id",
+    "campaign_submissions.csv": "submission_id",
 }
 
 
@@ -203,13 +211,16 @@ def validate_directory(directory: Path) -> list[ValidationError]:
 
     influencer_ids = {row["influencer_id"] for row in loaded.get("influencers.csv", [])}
     campaign_ids = {row["campaign_id"] for row in loaded.get("campaigns.csv", [])}
-    for filename in ("posts.csv", "outcomes.csv"):
+    for filename in ("posts.csv", "outcomes.csv", "campaign_submissions.csv"):
         for row_number, row in enumerate(loaded.get(filename, []), start=2):
             if row.get("influencer_id") not in influencer_ids:
                 errors.append(ValidationError(filename, row_number, "influencer_id", "does not exist in influencers.csv"))
     for row_number, row in enumerate(loaded.get("outcomes.csv", []), start=2):
         if row.get("campaign_id") not in campaign_ids:
             errors.append(ValidationError("outcomes.csv", row_number, "campaign_id", "does not exist in campaigns.csv"))
+    for row_number, row in enumerate(loaded.get("campaign_submissions.csv", []), start=2):
+        if row.get("campaign_id") not in campaign_ids:
+            errors.append(ValidationError("campaign_submissions.csv", row_number, "campaign_id", "does not exist in campaigns.csv"))
     return errors
 
 
