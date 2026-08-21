@@ -94,6 +94,18 @@ python scripts/generate_roi_simulation.py
 
 The simulator produces conservative, expected, and optimistic funnel outcomes plus contribution-margin sensitivity analysis. Scenarios are assumptions, not forecast probabilities.
 
+## Open the web dashboard
+
+The responsive dashboard combines campaign selection, explainable creator rankings, compliance health, and interactive ROI scenarios.
+
+```powershell
+cd web
+npm install
+npm run dev
+```
+
+Open `http://localhost:3000` in a browser. The hosted version uses the same interface through a normal public link.
+
 ## License
 
 The original source code in this repository is licensed under the [MIT License](LICENSE). Third-party datasets, models, platform content, and trademarks remain subject to their respective licenses and terms.
