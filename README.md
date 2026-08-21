@@ -117,6 +117,8 @@ Use **Download rankings CSV** for a reusable creator table. Use **Save report as
 
 Use **Projects** to sign in with ChatGPT and privately save, reload, or delete complete dashboard workspaces. Ownership is enforced by the server, and each account can access only its own project records.
 
+Use **Connect YouTube** to retrieve public channel totals and summarize up to 10 recent public videos through the official YouTube Data API v3. The connector displays its source and refresh time. A server-side `YOUTUBE_API_KEY` is required; setup and responsible-use limits are documented in [Data connectors](docs/DATA_CONNECTORS.md).
+
 ## License
 
 The original source code in this repository is licensed under the [MIT License](LICENSE). Third-party datasets, models, platform content, and trademarks remain subject to their respective licenses and terms.
