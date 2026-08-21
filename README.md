@@ -106,6 +106,8 @@ npm run dev
 
 Open `http://localhost:3000` in a browser. The hosted version uses the same interface through a normal public link.
 
+Use **Import reports** to load `campaign_rankings.csv` and `roi_scenarios.csv`. Imported values are processed locally in the browser and remain available until the page is refreshed or reset.
+
 ## License
 
 The original source code in this repository is licensed under the [MIT License](LICENSE). Third-party datasets, models, platform content, and trademarks remain subject to their respective licenses and terms.
