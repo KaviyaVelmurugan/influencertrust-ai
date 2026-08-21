@@ -20,3 +20,9 @@ Connected results display their source and refresh timestamp. Channel-level tota
 After connection, the dashboard calculates a campaign-candidate score from four observable components: recent-video engagement, average-view reach relative to subscribers, view consistency, and the available sample size. Weights change with the selected objective: awareness emphasizes reach, conversions emphasize engagement, and traffic balances both.
 
 The result is a screening recommendation—not an automatic hiring decision. It intentionally excludes inferred demographics, unverified authenticity claims, subjective brand safety, and conversion attribution.
+
+## Multi-channel shortlist
+
+Multiple connected channels can be ranked side by side for the active campaign. Switching campaigns recalculates every score with the new objective weights. The comparison exposes component scores, recommendation, evidence confidence, subscribers, average views, and engagement, and it can be exported as CSV for review.
+
+The comparison is session-based in this phase: refreshing the page clears connected channel data. This avoids silently storing third-party platform observations without the user's knowledge.

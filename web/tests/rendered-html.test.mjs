@@ -44,7 +44,10 @@ test("keeps interactive campaign and scenario controls", async () => {
   assert.match(page, /\/api\/projects/);
   assert.match(page, /Connect YouTube/);
   assert.match(page, /\/api\/connectors\/youtube/);
-  assert.match(page, /Explainable candidate score/);
+  assert.match(page, /LIVE CREATOR COMPARISON/);
   assert.match(page, /evaluateYouTube/);
+  assert.match(page, /YouTube campaign shortlist/);
+  assert.match(page, /Export shortlist/);
+  assert.match(page, /youtubeEvaluations/);
   assert.match(layout, /social-preview\.png/);
 });

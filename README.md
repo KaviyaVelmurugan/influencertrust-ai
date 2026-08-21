@@ -121,6 +121,8 @@ Use **Connect YouTube** to retrieve public channel totals and summarize up to 10
 
 Connected channels receive an explainable campaign-candidate score. The selected objective controls the weights applied to engagement, reach efficiency, view consistency, and evidence coverage. The recommendation remains decision support and explicitly identifies evidence that still requires human review.
 
+Add multiple channels to create a live comparison shortlist. Rankings recalculate when the active campaign changes, and the comparison can be exported to CSV. Connected platform observations remain session-only unless the user explicitly saves them elsewhere.
+
 ## License
 
 The original source code in this repository is licensed under the [MIT License](LICENSE). Third-party datasets, models, platform content, and trademarks remain subject to their respective licenses and terms.
