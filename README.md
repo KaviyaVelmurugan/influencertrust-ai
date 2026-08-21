@@ -6,7 +6,7 @@ The project is being developed as an original, portfolio-quality application. It
 
 ## Project status
 
-**Phase 2 — Data contract and synthetic dataset**
+**Phase 3 — Baseline analytics**
 
 The MVP requirements, boundaries, success criteria, and development roadmap are documented in [`docs/PROJECT_REQUIREMENTS.md`](docs/PROJECT_REQUIREMENTS.md) and [`docs/ROADMAP.md`](docs/ROADMAP.md).
 
@@ -42,7 +42,17 @@ Authenticity output will be presented as a risk estimate, not proof that a creat
 - [Development roadmap](docs/ROADMAP.md)
 - [Decision log](docs/DECISIONS.md)
 - [Data dictionary](docs/DATA_DICTIONARY.md)
+- [Metric definitions](docs/METRICS.md)
 - [Sample-data notes](data/README.md)
+
+## Generate baseline reports
+
+```powershell
+$env:PYTHONPATH="src"
+python scripts/generate_baseline_reports.py
+```
+
+The generated reports separate influencer-level attention metrics, outcome-level funnel metrics, and correctly aggregated campaign metrics.
 
 ## License
 

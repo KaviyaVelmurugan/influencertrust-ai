@@ -24,6 +24,8 @@
 
 ## Phase 3 — Baseline analytics
 
+**Status:** Complete
+
 - Implement engagement, growth, efficiency, ROI, and ROAS formulas
 - Write unit tests for edge cases
 - Produce exploratory analysis

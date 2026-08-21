@@ -43,3 +43,15 @@ This file records important product and engineering decisions so that the projec
 **Decision:** Generate the public sample with a fixed pseudo-random seed and clearly label it as synthetic.
 
 **Reason:** Every contributor should obtain the same test data, while no real creator is profiled or misrepresented.
+
+## D-008: Report undefined ratios as missing
+
+**Decision:** A metric with a zero denominator returns a missing value rather than zero or infinity.
+
+**Reason:** Zero would incorrectly imply poor performance, while infinity is not useful for decisions. The missing result makes insufficient evidence explicit.
+
+## D-009: Aggregate totals before calculating rates
+
+**Decision:** Campaign CTR, conversion rate, CPA, ROI, and ROAS are calculated from summed campaign inputs.
+
+**Reason:** Averaging row-level ratios gives small and large observations equal weight and can materially misstate campaign performance.

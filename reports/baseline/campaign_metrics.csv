@@ -1,0 +1,4 @@
+campaign_id,influencer_count,impressions,clicks,conversions,attributed_revenue,total_cost,profit,click_through_rate_pct,conversion_rate_pct,cost_per_acquisition,roas_x,roi_pct,currency
+CAM-001,4,1214271,32227,1505,2709000.00,634427.00,2074573.00,2.65,4.67,421.55,4.27,327.00,INR
+CAM-002,4,1074887,24669,1174,3520826.00,1125939.00,2394887.00,2.30,4.76,959.06,3.13,212.70,INR
+CAM-003,4,1296378,34886,979,12237500.00,1430568.00,10806932.00,2.69,2.81,1461.25,8.55,755.43,INR
