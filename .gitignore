@@ -32,3 +32,6 @@ Thumbs.db
 
 # Logs
 *.log
+
+# Local work and previews
+work/

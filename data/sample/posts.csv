@@ -1,0 +1,91 @@
+post_id,influencer_id,published_at,caption,likes,comments,views,shares,is_sponsored
+POST-0001,INF-001,2026-05-02,My simple summer skincare routine with mindful product choices. #beauty,2739,222,221977,1780,false
+POST-0002,INF-001,2026-06-03,Three habits that helped me protect and hydrate my skin. #beauty,2744,242,273674,1783,false
+POST-0003,INF-001,2026-07-04,My simple summer skincare routine with mindful product choices. #ad #beauty @samplebrand,2380,168,302014,2535,true
+POST-0004,INF-002,2026-05-05,A realistic home workout you can complete in twenty minutes. #fitness,27397,3741,344304,3696,false
+POST-0005,INF-002,2026-06-06,Consistency matters more than perfection in your wellness routine. #fitness,32483,4655,360890,2759,false
+POST-0006,INF-002,2026-07-07,A realistic home workout you can complete in twenty minutes. #ad #fitness @samplebrand,38555,3081,278397,3620,true
+POST-0007,INF-003,2026-05-08,A practical weekend itinerary with local experiences and a small budget. #travel,32483,3489,1122504,2282,false
+POST-0008,INF-003,2026-06-09,Save this guide for your next short trip. #travel,26483,2085,1053110,2236,false
+POST-0009,INF-003,2026-07-10,A practical weekend itinerary with local experiences and a small budget. #ad #travel @samplebrand,30546,3485,857733,2570,true
+POST-0010,INF-004,2026-05-11,A quick balanced recipe for busy weekdays. #food,3618,364,1201194,3963,false
+POST-0011,INF-004,2026-06-12,Trying a local restaurant and sharing my honest review. #food,4296,246,1122668,2448,false
+POST-0012,INF-004,2026-07-13,A quick balanced recipe for busy weekdays. #ad #food @samplebrand,2742,463,1088027,4238,true
+POST-0013,INF-005,2026-05-14,Testing a productivity app for one full week. #technology,7274,811,103933,350,false
+POST-0014,INF-005,2026-06-15,What I liked and disliked about this everyday gadget. #technology,6860,540,114949,805,false
+POST-0015,INF-005,2026-07-16,Testing a productivity app for one full week. #ad #technology @samplebrand,7192,668,68416,436,true
+POST-0016,INF-006,2026-05-17,Styling one ethical fashion piece in three different ways. #fashion,41034,4407,565231,5298,false
+POST-0017,INF-006,2026-06-18,A comfortable streetwear look for a long day. #fashion,54237,4310,907099,5972,false
+POST-0018,INF-006,2026-07-19,Styling one ethical fashion piece in three different ways. #ad #fashion @samplebrand,54259,2923,728226,7773,true
+POST-0019,INF-007,2026-05-20,My simple summer skincare routine with mindful product choices. #beauty,992,91,9211,103,false
+POST-0020,INF-007,2026-06-21,Three habits that helped me protect and hydrate my skin. #beauty,1015,145,12779,64,false
+POST-0021,INF-007,2026-07-22,My simple summer skincare routine with mindful product choices. #ad #beauty @samplebrand,804,72,11442,67,true
+POST-0022,INF-008,2026-05-23,A realistic home workout you can complete in twenty minutes. #fitness,4532,470,20967,94,false
+POST-0023,INF-008,2026-06-24,Consistency matters more than perfection in your wellness routine. #fitness,4896,667,35632,89,false
+POST-0024,INF-008,2026-07-25,A realistic home workout you can complete in twenty minutes. #ad #fitness @samplebrand,4931,442,28282,169,true
+POST-0025,INF-009,2026-05-01,A practical weekend itinerary with local experiences and a small budget. #travel,448,63,26804,110,false
+POST-0026,INF-009,2026-06-02,Save this guide for your next short trip. #travel,621,56,27794,193,false
+POST-0027,INF-009,2026-07-03,A practical weekend itinerary with local experiences and a small budget. #ad #travel @samplebrand,592,47,17767,134,true
+POST-0028,INF-010,2026-05-04,A quick balanced recipe for busy weekdays. #food,935,76,1032403,16858,false
+POST-0029,INF-010,2026-06-05,Trying a local restaurant and sharing my honest review. #food,1344,44,816080,12411,false
+POST-0030,INF-010,2026-07-06,A quick balanced recipe for busy weekdays. #ad #food @samplebrand,1160,81,740952,11022,true
+POST-0031,INF-011,2026-05-07,Testing a productivity app for one full week. #technology,6305,1080,175428,2602,false
+POST-0032,INF-011,2026-06-08,What I liked and disliked about this everyday gadget. #technology,10840,1090,209470,2142,false
+POST-0033,INF-011,2026-07-09,Testing a productivity app for one full week. #ad #technology @samplebrand,9644,874,232491,1378,true
+POST-0034,INF-012,2026-05-10,Styling one ethical fashion piece in three different ways. #fashion,10745,819,295005,1917,false
+POST-0035,INF-012,2026-06-11,A comfortable streetwear look for a long day. #fashion,6213,554,283860,2426,false
+POST-0036,INF-012,2026-07-12,Styling one ethical fashion piece in three different ways. #ad #fashion @samplebrand,9795,1135,162950,1945,true
+POST-0037,INF-013,2026-05-13,My simple summer skincare routine with mindful product choices. #beauty,2400,229,15149,48,false
+POST-0038,INF-013,2026-06-14,Three habits that helped me protect and hydrate my skin. #beauty,1912,169,13833,55,false
+POST-0039,INF-013,2026-07-15,My simple summer skincare routine with mindful product choices. #ad #beauty @samplebrand,1460,154,21356,50,true
+POST-0040,INF-014,2026-05-16,A realistic home workout you can complete in twenty minutes. #fitness,1828,151,13224,125,false
+POST-0041,INF-014,2026-06-17,Consistency matters more than perfection in your wellness routine. #fitness,1761,177,16307,61,false
+POST-0042,INF-014,2026-07-18,A realistic home workout you can complete in twenty minutes. #ad #fitness @samplebrand,1660,297,12396,59,true
+POST-0043,INF-015,2026-05-19,A practical weekend itinerary with local experiences and a small budget. #travel,15865,1651,179328,922,false
+POST-0044,INF-015,2026-06-20,Save this guide for your next short trip. #travel,17177,1735,196193,613,false
+POST-0045,INF-015,2026-07-21,A practical weekend itinerary with local experiences and a small budget. #ad #travel @samplebrand,16408,1425,191199,636,true
+POST-0046,INF-016,2026-05-22,A quick balanced recipe for busy weekdays. #food,27958,2740,259749,617,false
+POST-0047,INF-016,2026-06-23,Trying a local restaurant and sharing my honest review. #food,28147,1751,240910,1090,false
+POST-0048,INF-016,2026-07-24,A quick balanced recipe for busy weekdays. #ad #food @samplebrand,23702,1537,275652,987,true
+POST-0049,INF-017,2026-05-25,Testing a productivity app for one full week. #technology,30852,1580,426467,1059,false
+POST-0050,INF-017,2026-06-01,What I liked and disliked about this everyday gadget. #technology,32692,2584,466120,902,false
+POST-0051,INF-017,2026-07-02,Testing a productivity app for one full week. #ad #technology @samplebrand,23979,3170,255614,1100,true
+POST-0052,INF-018,2026-05-03,Styling one ethical fashion piece in three different ways. #fashion,27144,1455,396096,2970,false
+POST-0053,INF-018,2026-06-04,A comfortable streetwear look for a long day. #fashion,16278,2937,404125,2773,false
+POST-0054,INF-018,2026-07-05,Styling one ethical fashion piece in three different ways. #ad #fashion @samplebrand,24554,1827,492952,2666,true
+POST-0055,INF-019,2026-05-06,My simple summer skincare routine with mindful product choices. #beauty,33014,4466,761169,3384,false
+POST-0056,INF-019,2026-06-07,Three habits that helped me protect and hydrate my skin. #beauty,30687,3279,422421,1669,false
+POST-0057,INF-019,2026-07-08,My simple summer skincare routine with mindful product choices. #ad #beauty @samplebrand,29133,3492,681690,1394,true
+POST-0058,INF-020,2026-05-09,A realistic home workout you can complete in twenty minutes. #fitness,236,10,207731,1307,false
+POST-0059,INF-020,2026-06-10,Consistency matters more than perfection in your wellness routine. #fitness,259,14,211309,2653,false
+POST-0060,INF-020,2026-07-11,A realistic home workout you can complete in twenty minutes. #ad #fitness @samplebrand,178,11,155739,2826,true
+POST-0061,INF-021,2026-05-12,A practical weekend itinerary with local experiences and a small budget. #travel,21347,2222,54570,711,false
+POST-0062,INF-021,2026-06-13,Save this guide for your next short trip. #travel,20776,1260,65285,670,false
+POST-0063,INF-021,2026-07-14,A practical weekend itinerary with local experiences and a small budget. #ad #travel @samplebrand,14557,1835,57219,619,true
+POST-0064,INF-022,2026-05-15,A quick balanced recipe for busy weekdays. #food,577,43,34962,382,false
+POST-0065,INF-022,2026-06-16,Trying a local restaurant and sharing my honest review. #food,689,44,39050,257,false
+POST-0066,INF-022,2026-07-17,A quick balanced recipe for busy weekdays. #ad #food @samplebrand,481,49,36484,324,true
+POST-0067,INF-023,2026-05-18,Testing a productivity app for one full week. #technology,32517,3518,145575,1279,false
+POST-0068,INF-023,2026-06-19,What I liked and disliked about this everyday gadget. #technology,40202,4323,97873,1149,false
+POST-0069,INF-023,2026-07-20,Testing a productivity app for one full week. #ad #technology @samplebrand,37874,3149,134410,1388,true
+POST-0070,INF-024,2026-05-21,Styling one ethical fashion piece in three different ways. #fashion,2312,219,50166,804,false
+POST-0071,INF-024,2026-06-22,A comfortable streetwear look for a long day. #fashion,2133,219,84186,490,false
+POST-0072,INF-024,2026-07-23,Styling one ethical fashion piece in three different ways. #ad #fashion @samplebrand,1578,174,53625,542,true
+POST-0073,INF-025,2026-05-24,My simple summer skincare routine with mindful product choices. #beauty,19739,2813,207883,2000,false
+POST-0074,INF-025,2026-06-25,Three habits that helped me protect and hydrate my skin. #beauty,25297,1894,226140,2059,false
+POST-0075,INF-025,2026-07-01,My simple summer skincare routine with mindful product choices. #ad #beauty @samplebrand,17347,2706,279461,1588,true
+POST-0076,INF-026,2026-05-02,A realistic home workout you can complete in twenty minutes. #fitness,35428,4300,587401,5975,false
+POST-0077,INF-026,2026-06-03,Consistency matters more than perfection in your wellness routine. #fitness,28100,2513,539731,6550,false
+POST-0078,INF-026,2026-07-04,A realistic home workout you can complete in twenty minutes. #ad #fitness @samplebrand,38088,3095,661876,8568,true
+POST-0079,INF-027,2026-05-05,A practical weekend itinerary with local experiences and a small budget. #travel,25303,2568,292327,676,false
+POST-0080,INF-027,2026-06-06,Save this guide for your next short trip. #travel,39327,2816,234275,908,false
+POST-0081,INF-027,2026-07-07,A practical weekend itinerary with local experiences and a small budget. #ad #travel @samplebrand,24990,3429,185632,957,true
+POST-0082,INF-028,2026-05-08,A quick balanced recipe for busy weekdays. #food,30327,2979,161820,1532,false
+POST-0083,INF-028,2026-06-09,Trying a local restaurant and sharing my honest review. #food,18397,3146,132399,1504,false
+POST-0084,INF-028,2026-07-10,A quick balanced recipe for busy weekdays. #ad #food @samplebrand,27431,2242,163867,1664,true
+POST-0085,INF-029,2026-05-11,Testing a productivity app for one full week. #technology,4606,444,101998,510,false
+POST-0086,INF-029,2026-06-12,What I liked and disliked about this everyday gadget. #technology,5691,332,72827,411,false
+POST-0087,INF-029,2026-07-13,Testing a productivity app for one full week. #ad #technology @samplebrand,6587,446,69537,773,true
+POST-0088,INF-030,2026-05-14,Styling one ethical fashion piece in three different ways. #fashion,154,11,26988,347,false
+POST-0089,INF-030,2026-06-15,A comfortable streetwear look for a long day. #fashion,260,8,19252,354,false
+POST-0090,INF-030,2026-07-16,Styling one ethical fashion piece in three different ways. #ad #fashion @samplebrand,211,11,29705,364,true

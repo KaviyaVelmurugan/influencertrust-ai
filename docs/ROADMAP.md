@@ -12,6 +12,8 @@
 
 ## Phase 2 — Data contract and synthetic dataset
 
+**Status:** Complete
+
 - Design campaign, influencer, post, and outcome schemas
 - Document every column and unit
 - Create realistic synthetic sample data

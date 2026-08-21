@@ -1,0 +1,4 @@
+campaign_id,campaign_name,objective,product_description,target_location,target_language,target_topics,prohibited_terms,required_hashtags,required_mentions,required_disclosure,budget,average_order_value,start_date,end_date,currency
+CAM-001,EcoGlow Summer Launch,awareness,Plant-based SPF skincare,India,en,skincare|sustainability|summer,skin whitening|competitor-x,#EcoGlow|#SummerSkin,@ecoglow,#ad,500000,1800,2026-09-01,2026-09-30,INR
+CAM-002,PulseFit Challenge,conversions,At-home fitness membership,India,en,fitness|wellness|home workout,unsafe weight loss|steroids,#PulseFit30,@pulsefit,#sponsored,750000,2999,2026-10-01,2026-10-31,INR
+CAM-003,WanderLite Weekends,traffic,Affordable weekend travel packages,India,en,travel|budget trips|local experiences,dangerous travel|trespassing,#WanderLite,@wanderlite,Paid partnership,600000,12500,2026-11-01,2026-11-30,INR

@@ -31,3 +31,15 @@ This file records important product and engineering decisions so that the projec
 **Decision:** The MVP provides a scenario simulator. It will not claim that simulated revenue was caused by an influencer campaign.
 
 **Reason:** Causal attribution requires tracked outcomes or controlled experiments that the initial dataset will not contain.
+
+## D-006: Separate campaigns, influencers, posts, and outcomes
+
+**Decision:** Store the four entities in linked CSV files with stable identifiers.
+
+**Reason:** This preserves source-style observations, reduces duplication, and prevents calculated recommendation scores from contaminating raw inputs.
+
+## D-007: Make sample data deterministic and synthetic
+
+**Decision:** Generate the public sample with a fixed pseudo-random seed and clearly label it as synthetic.
+
+**Reason:** Every contributor should obtain the same test data, while no real creator is profiled or misrepresented.

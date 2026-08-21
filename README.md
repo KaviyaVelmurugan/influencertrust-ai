@@ -6,9 +6,11 @@ The project is being developed as an original, portfolio-quality application. It
 
 ## Project status
 
-**Phase 1 — Product definition**
+**Phase 2 — Data contract and synthetic dataset**
 
 The MVP requirements, boundaries, success criteria, and development roadmap are documented in [`docs/PROJECT_REQUIREMENTS.md`](docs/PROJECT_REQUIREMENTS.md) and [`docs/ROADMAP.md`](docs/ROADMAP.md).
+
+The first data contract is documented in [`docs/DATA_DICTIONARY.md`](docs/DATA_DICTIONARY.md). The committed sample data is deterministic and entirely synthetic.
 
 ## MVP capabilities
 
@@ -39,6 +41,8 @@ Authenticity output will be presented as a risk estimate, not proof that a creat
 - [Project requirements](docs/PROJECT_REQUIREMENTS.md)
 - [Development roadmap](docs/ROADMAP.md)
 - [Decision log](docs/DECISIONS.md)
+- [Data dictionary](docs/DATA_DICTIONARY.md)
+- [Sample-data notes](data/README.md)
 
 ## License
 
