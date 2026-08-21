@@ -31,5 +31,5 @@ Store selected images in `docs/screenshots/` and add them to the README only aft
 - [x] Live YouTube comparison works
 - [x] Private project ownership is enforced server-side
 - [x] API routes are excluded from offline caching
-- [ ] Review the LinkedIn article in your own voice
-- [ ] Publish the LinkedIn article with the GitHub link
+- [ ] Review the local LinkedIn and Medium drafts in your own voice
+- [ ] Publish both articles with the GitHub link and privacy-checked screenshots

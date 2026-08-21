@@ -42,3 +42,4 @@ yarn-error.log*
 
 # private local deployment notes
 PRIVATE_DEPLOYMENT.md
+private-content/

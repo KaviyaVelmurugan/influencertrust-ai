@@ -81,7 +81,6 @@ pytest
 - [ROI simulator](docs/ROI_SIMULATOR.md)
 - [Automated analysis pipeline](docs/AUTOMATED_PIPELINE.md)
 - [Release checklist](docs/RELEASE_CHECKLIST.md)
-- [LinkedIn article](docs/LINKEDIN_ARTICLE.md)
 
 ## Responsible use
 
