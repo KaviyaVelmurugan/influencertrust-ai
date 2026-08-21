@@ -34,5 +34,8 @@ test("keeps interactive campaign and scenario controls", async () => {
   assert.match(page, /parseCsv/);
   assert.match(page, /Analyze raw data/);
   assert.match(page, /buildAnalysis/);
+  assert.match(page, /Check captions/);
+  assert.match(page, /Caption compliance audit/);
+  assert.match(page, /Creator brief/);
   assert.match(layout, /social-preview\.png/);
 });
