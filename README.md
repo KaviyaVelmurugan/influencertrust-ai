@@ -6,7 +6,7 @@ The project is being developed as an original, portfolio-quality application. It
 
 ## Project status
 
-**Phase 3 — Baseline analytics**
+**Phase 4 — Explainable authenticity-risk engine**
 
 The MVP requirements, boundaries, success criteria, and development roadmap are documented in [`docs/PROJECT_REQUIREMENTS.md`](docs/PROJECT_REQUIREMENTS.md) and [`docs/ROADMAP.md`](docs/ROADMAP.md).
 
@@ -43,6 +43,7 @@ Authenticity output will be presented as a risk estimate, not proof that a creat
 - [Decision log](docs/DECISIONS.md)
 - [Data dictionary](docs/DATA_DICTIONARY.md)
 - [Metric definitions](docs/METRICS.md)
+- [Authenticity-risk design](docs/AUTHENTICITY_RISK.md)
 - [Sample-data notes](data/README.md)
 
 ## Generate baseline reports
@@ -53,6 +54,15 @@ python scripts/generate_baseline_reports.py
 ```
 
 The generated reports separate influencer-level attention metrics, outcome-level funnel metrics, and correctly aggregated campaign metrics.
+
+## Generate authenticity-risk report
+
+```powershell
+$env:PYTHONPATH="src"
+python scripts/generate_authenticity_report.py
+```
+
+The report contains rule-based screening signals, evidence coverage, limitations, and a versioned explanation. It must not be interpreted as proof of fraud.
 
 ## License
 

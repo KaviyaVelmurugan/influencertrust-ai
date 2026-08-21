@@ -55,3 +55,15 @@ This file records important product and engineering decisions so that the projec
 **Decision:** Campaign CTR, conversion rate, CPA, ROI, and ROAS are calculated from summed campaign inputs.
 
 **Reason:** Averaging row-level ratios gives small and large observations equal weight and can materially misstate campaign performance.
+
+## D-010: Establish an explainable risk baseline before machine learning
+
+**Decision:** Phase 4 uses visible, versioned rules and platform peer benchmarks.
+
+**Reason:** We do not yet have a licensed, trustworthy labelled dataset for training or evaluating a fraud classifier. A transparent baseline prevents unsupported accuracy claims and gives future models something meaningful to beat.
+
+## D-011: Separate evidence coverage from confidence
+
+**Decision:** Report the percentage of expected evidence present, not a model-confidence percentage.
+
+**Reason:** A rule score is not a calibrated probability. Calling data coverage “confidence” would mislead users about certainty.

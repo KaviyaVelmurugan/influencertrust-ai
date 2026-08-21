@@ -35,6 +35,8 @@
 
 ## Phase 4 — Authenticity-risk engine
 
+**Status:** Complete
+
 - Start with transparent rules and anomaly features
 - Establish evaluation protocol
 - Add an anomaly-detection baseline
