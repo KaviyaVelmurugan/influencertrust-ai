@@ -173,6 +173,12 @@ const submissions = outcomes.map((outcome, index) => {
   ];
 });
 
+const scenarioAssumptions = [
+  ["CAM-001", 1000000, 35, 2.5, 4, 1800, 300000, 50000, 25000, 65, "INR"],
+  ["CAM-002", 800000, 40, 3, 5, 2999, 450000, 75000, 35000, 75, "INR"],
+  ["CAM-003", 600000, 30, 2.8, 3, 12500, 400000, 100000, 30000, 22, "INR"],
+];
+
 const datasets = [
   {
     filename: "campaigns.csv",
@@ -198,6 +204,11 @@ const datasets = [
     filename: "campaign_submissions.csv",
     headers: ["submission_id", "campaign_id", "influencer_id", "caption"],
     rows: submissions,
+  },
+  {
+    filename: "scenario_assumptions.csv",
+    headers: ["campaign_id", "audience_size", "reach_rate_pct", "click_through_rate_pct", "conversion_rate_pct", "average_order_value", "influencer_fees", "production_cost", "other_campaign_costs", "gross_margin_pct", "currency"],
+    rows: scenarioAssumptions,
   },
 ];
 

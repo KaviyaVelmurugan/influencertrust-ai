@@ -19,6 +19,7 @@ erDiagram
     INFLUENCER ||--o{ OUTCOME : participates_in
     CAMPAIGN ||--o{ CAMPAIGN_SUBMISSION : defines_rules_for
     INFLUENCER ||--o{ CAMPAIGN_SUBMISSION : submits
+    CAMPAIGN ||--|| SCENARIO_ASSUMPTIONS : models
 ```
 
 ## `campaigns.csv`
@@ -104,6 +105,22 @@ erDiagram
 | `influencer_id` | foreign key | References `influencers.csv` |
 | `caption` | string | Proposed or submitted campaign caption |
 
+## `scenario_assumptions.csv`
+
+| Column | Type | Meaning |
+|---|---|---|
+| `campaign_id` | foreign key | One assumption set per sample campaign |
+| `audience_size` | integer | Addressable audience used as the funnel starting point |
+| `reach_rate_pct` | decimal | Expected share of the audience reached |
+| `click_through_rate_pct` | decimal | Expected clicks as a percentage of reach |
+| `conversion_rate_pct` | decimal | Expected conversions as a percentage of clicks |
+| `average_order_value` | decimal | Expected revenue per conversion |
+| `influencer_fees` | decimal | Planned creator fees |
+| `production_cost` | decimal | Planned production expenditure |
+| `other_campaign_costs` | decimal | Other included campaign expenditure |
+| `gross_margin_pct` | decimal | Revenue remaining after direct product/service costs |
+| `currency` | enum | Shared currency for values and costs |
+
 ## Validation rules
 
 - Required files and columns must exist.
@@ -116,5 +133,7 @@ erDiagram
 - Post and outcome influencer IDs must exist in `influencers.csv`.
 - Outcome campaign IDs must exist in `campaigns.csv`.
 - Submission campaign and influencer IDs must reference existing records.
+- Scenario rates and gross margin must remain between 0% and 100%.
+- Every scenario campaign ID must reference an existing campaign.
 
 These rules verify structural plausibility. They do not prove that uploaded source data is truthful.

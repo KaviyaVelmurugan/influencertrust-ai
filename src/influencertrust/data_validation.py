@@ -139,6 +139,19 @@ SCHEMAS: dict[str, dict[str, Callable[[str], object]]] = {
         "influencer_id": _text,
         "caption": _text,
     },
+    "scenario_assumptions.csv": {
+        "campaign_id": _text,
+        "audience_size": _integer(),
+        "reach_rate_pct": _number(0, 100),
+        "click_through_rate_pct": _number(0, 100),
+        "conversion_rate_pct": _number(0, 100),
+        "average_order_value": _number(),
+        "influencer_fees": _number(),
+        "production_cost": _number(),
+        "other_campaign_costs": _number(),
+        "gross_margin_pct": _number(0, 100),
+        "currency": _choice("INR", "USD", "EUR", "GBP"),
+    },
 }
 
 PRIMARY_KEYS = {
@@ -147,6 +160,7 @@ PRIMARY_KEYS = {
     "posts.csv": "post_id",
     "outcomes.csv": "outcome_id",
     "campaign_submissions.csv": "submission_id",
+    "scenario_assumptions.csv": "campaign_id",
 }
 
 
@@ -221,6 +235,9 @@ def validate_directory(directory: Path) -> list[ValidationError]:
     for row_number, row in enumerate(loaded.get("campaign_submissions.csv", []), start=2):
         if row.get("campaign_id") not in campaign_ids:
             errors.append(ValidationError("campaign_submissions.csv", row_number, "campaign_id", "does not exist in campaigns.csv"))
+    for row_number, row in enumerate(loaded.get("scenario_assumptions.csv", []), start=2):
+        if row.get("campaign_id") not in campaign_ids:
+            errors.append(ValidationError("scenario_assumptions.csv", row_number, "campaign_id", "does not exist in campaigns.csv"))
     return errors
 
 

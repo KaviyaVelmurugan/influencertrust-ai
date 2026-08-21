@@ -70,6 +70,8 @@
 
 ## Phase 7 — ROI simulator
 
+**Status:** Complete
+
 - Define financial inputs and validation
 - Implement conservative, expected, and optimistic cases
 - Add sensitivity analysis

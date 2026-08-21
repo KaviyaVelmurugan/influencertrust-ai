@@ -91,3 +91,15 @@ This file records important product and engineering decisions so that the projec
 **Decision:** Call the output campaign-rule compliance and include explicit legal and multimodal limitations.
 
 **Reason:** A caption checker cannot establish compliance across jurisdictions or inspect claims made in images, audio, video, or linked pages.
+
+## D-016: Show campaign ROI and contribution ROI separately
+
+**Decision:** Preserve the simple revenue-based campaign ROI while adding gross-margin-based contribution ROI.
+
+**Reason:** ROAS and revenue-based ROI can look attractive even when direct product or service costs make a campaign economically unprofitable.
+
+## D-017: Treat scenarios as assumptions, not probabilities
+
+**Decision:** Publish the exact conservative, expected, and optimistic multipliers without assigning likelihoods.
+
+**Reason:** The synthetic dataset cannot support statistical confidence intervals or calibrated outcome distributions.
