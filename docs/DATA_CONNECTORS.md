@@ -25,4 +25,4 @@ The result is a screening recommendation—not an automatic hiring decision. It 
 
 Multiple connected channels can be ranked side by side for the active campaign. Switching campaigns recalculates every score with the new objective weights. The comparison exposes component scores, recommendation, evidence confidence, subscribers, average views, and engagement, and it can be exported as CSV for review.
 
-The comparison is session-based in this phase: refreshing the page clears connected channel data. This avoids silently storing third-party platform observations without the user's knowledge.
+Connected data remains session-based until the user explicitly selects **Save current** inside the private Projects workspace. A saved project includes its shortlist, source timestamps, and public YouTube observations. Loading the project restores the comparison, while deleting the project removes the saved copy.

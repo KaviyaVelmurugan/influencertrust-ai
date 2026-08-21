@@ -11,8 +11,9 @@ export async function GET() {
 
 export async function POST(request:Request){
   const user=await getChatGPTUser();if(!user)return Response.json({error:"Sign in required"},{status:401});
-  const body=await request.json() as {name?:string;payload?:unknown};const name=body.name?.trim();if(!name||!body.payload)return Response.json({error:"Project name and payload are required"},{status:400});
-  const project={id:crypto.randomUUID(),userId:user.userId,name:name.slice(0,80),payload:JSON.stringify(body.payload)};await getDb().insert(savedProjects).values(project);return Response.json({project:{...project,payload:body.payload}},{status:201});
+  const body=await request.json() as {name?:string;payload?:unknown};const name=body.name?.trim();if(!name||!body.payload||typeof body.payload!=="object")return Response.json({error:"Project name and payload are required"},{status:400});
+  const payload=JSON.stringify(body.payload);if(payload.length>500000)return Response.json({error:"Project is too large to save"},{status:413});
+  const project={id:crypto.randomUUID(),userId:user.userId,name:name.slice(0,80),payload};await getDb().insert(savedProjects).values(project);return Response.json({project:{...project,payload:body.payload}},{status:201});
 }
 
 export async function DELETE(request:Request){

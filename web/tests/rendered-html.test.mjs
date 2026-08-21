@@ -49,5 +49,13 @@ test("keeps interactive campaign and scenario controls", async () => {
   assert.match(page, /YouTube campaign shortlist/);
   assert.match(page, /Export shortlist/);
   assert.match(page, /youtubeEvaluations/);
+  assert.match(page, /payload:\{campaigns,id,scenario,complianceResults,brief,youtubeChannels\}/);
+  assert.match(page, /setYoutubeChannels\(project\.payload\.youtubeChannels/);
   assert.match(layout, /social-preview\.png/);
+});
+
+test("protects persisted project payloads", async () => {
+  const route = await readFile(new URL("../app/api/projects/route.ts", import.meta.url), "utf8");
+  assert.match(route, /payload\.length>500000/);
+  assert.match(route, /userId:user\.userId/);
 });
