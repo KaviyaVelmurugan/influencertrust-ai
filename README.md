@@ -47,6 +47,7 @@ Authenticity output will be presented as a risk estimate, not proof that a creat
 - [Campaign matching and ranking](docs/MATCHING_AND_RANKING.md)
 - [Caption compliance](docs/COMPLIANCE.md)
 - [ROI scenario simulator](docs/ROI_SIMULATOR.md)
+- [Automated browser analysis](docs/AUTOMATED_PIPELINE.md)
 - [Sample-data notes](data/README.md)
 
 ## Generate baseline reports
@@ -107,6 +108,8 @@ npm run dev
 Open `http://localhost:3000` in a browser. The hosted version uses the same interface through a normal public link.
 
 Use **Import reports** to load `campaign_rankings.csv` and `roi_scenarios.csv`. Imported values are processed locally in the browser and remain available until the page is refreshed or reset.
+
+Use **Analyze raw data** with `campaigns.csv` and `influencers.csv` to validate inputs, calculate campaign fit, authenticity, engagement quality and cost efficiency, rank creators, and generate three ROI scenarios automatically. This MVP analysis runs locally in the browser and does not transmit the selected files.
 
 ## License
 

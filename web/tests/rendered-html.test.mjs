@@ -32,5 +32,7 @@ test("keeps interactive campaign and scenario controls", async () => {
   assert.match(page, /aria-label="Choose campaign"/);
   assert.match(page, /Import reports/);
   assert.match(page, /parseCsv/);
+  assert.match(page, /Analyze raw data/);
+  assert.match(page, /buildAnalysis/);
   assert.match(layout, /social-preview\.png/);
 });

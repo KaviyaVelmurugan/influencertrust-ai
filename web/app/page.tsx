@@ -21,6 +21,22 @@ function parseCsv(text:string){
  row.push(cell);if(row.some(Boolean))rows.push(row);const headers=rows.shift()?.map(x=>x.trim())??[];
  return rows.map(values=>Object.fromEntries(headers.map((h,i)=>[h,(values[i]??"").trim()])));
 }
+const clamp=(n:number)=>Math.max(0,Math.min(100,n));
+const tokens=(value:string)=>new Set((value||"").toLowerCase().split(/[^a-z0-9]+/).filter(x=>x.length>2));
+function topicFit(campaign:Record<string,string>,creator:Record<string,string>){
+ const wanted=tokens(`${campaign.target_topics} ${campaign.product_description}`),has=tokens(`${creator.content_topics} ${creator.profile_text} ${creator.category}`);
+ const coverage=wanted.size?[...wanted].filter(x=>has.has(x)).length/wanted.size:0;
+ const location=!campaign.target_location||creator.location?.toLowerCase().includes(campaign.target_location.toLowerCase())?10:0;
+ const language=!campaign.target_language||creator.primary_language===campaign.target_language?5:0;
+ return clamp(15+coverage*70+location+language);
+}
+function buildAnalysis(campaignRows:Record<string,string>[],influencerRows:Record<string,string>[]):Campaign[]{
+ const accents=["#6747ee","#ef5da8","#f39b39","#35a982"],fees=influencerRows.map(x=>Number(x.estimated_fee)||0),minFee=Math.min(...fees),maxFee=Math.max(...fees);
+ return campaignRows.map((c,index)=>{const ranked=influencerRows.map(x=>{const engagement=Number(x.engagement_rate_pct)||0,growth=Number(x.follower_growth_30d_pct)||0,followers=Number(x.followers)||1,following=Number(x.following)||0;let auth=100;if(following/followers>.02)auth-=20;if(growth>15&&engagement<1.5)auth-=35;if(engagement<.5)auth-=20;const efficiency=maxFee===minFee?70:100-((Number(x.estimated_fee)-minFee)/(maxFee-minFee))*70,fit=topicFit(c,x),eng=clamp(engagement/8*100),score=fit*.5+auth*.25+eng*.15+efficiency*.1;return {handle:x.handle||x.influencer_id,platform:x.platform||"Unknown",category:x.category||"Uncategorised",score,fit,auth:clamp(auth),eng};}).sort((a,b)=>b.score-a.score).slice(0,5);
+  const topHandles=new Set(ranked.map(x=>x.handle)),top=influencerRows.filter(x=>topHandles.has(x.handle||x.influencer_id)).slice(0,3),cost=Math.max(1,top.reduce((sum,x)=>sum+(Number(x.estimated_fee)||0),0)),followerBase=top.reduce((sum,x)=>sum+(Number(x.followers)||0),0),aov=Number(c.average_order_value)||1000;
+  const makeRoi=(reach:number,ctr:number,conversion:number):Roi=>{const conversions=followerBase*reach*ctr*conversion,revenue=conversions*aov,profit=revenue*.65-cost;return {conversions,revenue,cost,profit,roas:revenue/cost,roi:profit/cost*100}};
+  return {id:c.campaign_id||`CAM-${index+1}`,name:c.campaign_name||`Campaign ${index+1}`,objective:c.objective||"Awareness",period:`${c.start_date||"Start"} – ${c.end_date||"End"}`,budget:Number(c.budget)||cost,accent:accents[index%accents.length],compliance:[0,1,0],creators:ranked,roi:{conservative:makeRoi(.28,.02,.03),expected:makeRoi(.35,.025,.04),optimistic:makeRoi(.4025,.03,.05)}};});
+}
 const icons:Record<string,string>={overview:"M3 3h7v7H3zM14 3h7v4h-7zM14 11h7v10h-7zM3 14h7v7H3z",people:"M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8",shield:"M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10M9 12l2 2 4-4",chart:"M3 20h18M6 16l4-5 4 3 5-8"};
 function Icon({name}:{name:string}){return <svg viewBox="0 0 24 24"><path d={icons[name]}/></svg>}
 
@@ -35,8 +51,13 @@ export default function Home(){
   }
   if(rankingFiles||roiFiles){setCampaigns(next);setNotice(`Session data loaded · ${rankingFiles} ranking file · ${roiFiles} ROI file`);}else setNotice("No compatible report columns found");
  }
+ async function analyzeRawData(files:FileList|null){
+  if(!files?.length)return;let campaignRows:Record<string,string>[]|null=null,influencerRows:Record<string,string>[]|null=null;
+  for(const file of Array.from(files)){const rows=parseCsv(await file.text());if(!rows.length)continue;if("campaign_name" in rows[0]&&"target_topics" in rows[0])campaignRows=rows;if("handle" in rows[0]&&"followers" in rows[0]&&"estimated_fee" in rows[0])influencerRows=rows;}
+  if(!campaignRows||!influencerRows){setNotice("Analysis needs both campaigns.csv and influencers.csv");return;}const analyzed=buildAnalysis(campaignRows,influencerRows);if(!analyzed.length){setNotice("No valid campaign rows were found");return;}setCampaigns(analyzed);setId(analyzed[0].id);setScenario("expected");setNotice(`Automated analysis complete · ${influencerRows.length} creators · ${analyzed.length} campaigns`);
+ }
  return <div className="shell"><aside><div className="brand"><b>IT</b><span>Influencer<em>Trust</em></span></div><nav><a className="active"><Icon name="overview"/>Overview</a><a><Icon name="people"/>Creators</a><a><Icon name="shield"/>Authenticity</a><a><Icon name="chart"/>ROI simulator</a></nav><div className="status"><small>MODEL STATUS</small><strong><i/>Analysis ready</strong><span>Last refreshed today</span></div></aside>
- <main><header><div><small>CAMPAIGN INTELLIGENCE</small><h1>Performance overview</h1><p>Rank creators, screen risk and forecast returns in one place.</p></div><div><label className="import-button">Import reports<input type="file" multiple accept=".csv,text/csv" onChange={e=>importReports(e.target.files)}/></label><b>KM</b></div></header>
+ <main><header><div><small>CAMPAIGN INTELLIGENCE</small><h1>Performance overview</h1><p>Rank creators, screen risk and forecast returns in one place.</p></div><div className="header-tools"><label className="raw-button">Analyze raw data<input type="file" multiple accept=".csv,text/csv" onChange={e=>analyzeRawData(e.target.files)}/></label><label className="import-button">Import reports<input type="file" multiple accept=".csv,text/csv" onChange={e=>importReports(e.target.files)}/></label><b>KM</b></div></header>
  <section className="campaign"><div className="current"><i style={{background:campaign.accent}}/><span><small>ACTIVE CAMPAIGN</small><b>{campaign.name}</b></span></div><div className="meta"><span><small>OBJECTIVE</small>{campaign.objective}</span><span><small>RUN DATES</small>{campaign.period}</span><span><small>BUDGET</small>{cash(campaign.budget)}</span></div><select aria-label="Choose campaign" value={id} onChange={e=>setId(e.target.value)}>{campaigns.map(x=><option key={x.id} value={x.id}>{x.name}</option>)}</select></section>
  <div className="data-notice"><span><i/>{notice}</span><button onClick={()=>{setCampaigns(data);setNotice("Showing verified sample data")}}>Reset sample</button></div>
  <section className="kpis"><Kpi label="Top creator score" value={campaign.creators[0].score.toFixed(1)} note={`@${campaign.creators[0].handle} leads`} badge="Low risk"/><Kpi label="Expected ROI" value={`${campaign.roi.expected.roi.toFixed(1)}%`} note={`${campaign.roi.expected.roas.toFixed(2)}× ROAS`} badge={campaign.roi.expected.roi>=0?"Profitable":"At risk"} bad={campaign.roi.expected.roi<0}/><Kpi label="Compliance health" value={`${Math.round(campaign.compliance[0]/checks*100)}%`} note={`${campaign.compliance[1]+campaign.compliance[2]} item(s) need attention`} badge={`${checks} checks`}/></section>
