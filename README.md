@@ -32,6 +32,8 @@ See [metric definitions](docs/METRICS.md), [matching and ranking](docs/MATCHING_
 
 ## Architecture
 
+![InfluencerTrust AI system architecture](docs/assets/influencertrust-ai-architecture.svg)
+
 The release uses a Next.js/TypeScript Progressive Web App with Cloudflare-compatible server routes, YouTube Data API v3, Sign in with ChatGPT, and a D1-backed private project store. The Python analytics package remains available for reproducible batch reports and tests.
 
 See the [architecture guide](docs/ARCHITECTURE.md) and [security guide](SECURITY.md).

@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">InfluencerTrust AI system architecture</title>
+  <desc id="desc">A marketer uses a Next.js progressive web application to analyze local CSV data, compare YouTube creators through a protected server connector, save private projects after authentication, and export explainable recommendations and reports.</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="5" stdDeviation="8" flood-color="#0f172a" flood-opacity="0.10"/></filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/></marker>
+    <style>
+      .title{font:700 34px Arial,sans-serif;fill:#0f172a}.subtitle{font:400 18px Arial,sans-serif;fill:#475569}
+      .section{font:700 18px Arial,sans-serif;letter-spacing:1px;fill:#334155}.heading{font:700 20px Arial,sans-serif;fill:#0f172a}
+      .label{font:600 17px Arial,sans-serif;fill:#0f172a}.body{font:400 15px Arial,sans-serif;fill:#475569}.small{font:400 13px Arial,sans-serif;fill:#64748b}
+      .node{stroke-width:2;rx:16;filter:url(#shadow)}.line{fill:none;stroke:#475569;stroke-width:3;marker-end:url(#arrow)}
+      .dash{fill:none;stroke:#94a3b8;stroke-width:2;stroke-dasharray:9 8;rx:22}.chip{rx:10;stroke-width:1.5}
+    </style>
+  </defs>
+
+  <rect width="1600" height="1000" fill="#f8fafc"/>
+  <text x="70" y="62" class="title">InfluencerTrust AI — System Architecture</text>
+  <text x="70" y="94" class="subtitle">Explainable creator screening, live YouTube comparison, compliance review, and ROI scenario planning</text>
+
+  <text x="70" y="148" class="section">INPUTS</text>
+  <rect class="node" x="70" y="170" width="250" height="112" fill="#e0f2fe" stroke="#0284c7"/>
+  <circle cx="110" cy="207" r="16" fill="#0284c7"/><path d="M103 208l5 5 10-12" fill="none" stroke="white" stroke-width="3"/>
+  <text x="140" y="213" class="heading">Marketer / Analyst</text>
+  <text x="95" y="246" class="body">Defines campaign goals, reviews</text><text x="95" y="268" class="body">evidence, and makes decisions.</text>
+
+  <rect class="node" x="70" y="315" width="250" height="105" fill="#fef3c7" stroke="#d97706"/>
+  <text x="95" y="352" class="label">Campaign CSV files</text>
+  <text x="95" y="380" class="body">Creators, posts, outcomes,</text><text x="95" y="402" class="body">costs, and assumptions</text>
+
+  <rect class="node" x="70" y="453" width="250" height="94" fill="#fee2e2" stroke="#dc2626"/>
+  <text x="95" y="491" class="label">YouTube channel IDs</text>
+  <text x="95" y="519" class="body">Public creator channels</text>
+
+  <rect class="node" x="70" y="580" width="250" height="112" fill="#ede9fe" stroke="#7c3aed"/>
+  <text x="95" y="618" class="label">Python analytics</text>
+  <text x="95" y="646" class="body">Validated batch calculations</text><text x="95" y="668" class="body">and reproducible CSV reports</text>
+
+  <text x="400" y="148" class="section">APPLICATION</text>
+  <rect class="node" x="400" y="170" width="500" height="522" fill="#ffffff" stroke="#2563eb"/>
+  <rect x="400" y="170" width="500" height="76" rx="16" fill="#dbeafe"/>
+  <path d="M400 230v-44q0-16 16-16h468q16 0 16 16v44z" fill="#dbeafe"/>
+  <text x="430" y="205" class="heading">Next.js + TypeScript PWA Dashboard</text>
+  <text x="430" y="230" class="body">Runs in the browser • responsive • installable</text>
+
+  <rect class="chip" x="430" y="278" width="205" height="92" fill="#eff6ff" stroke="#60a5fa"/>
+  <text x="450" y="310" class="label">Creator ranking</text><text x="450" y="337" class="body">Fit, quality, risk,</text><text x="450" y="358" class="body">and cost efficiency</text>
+  <rect class="chip" x="665" y="278" width="205" height="92" fill="#eff6ff" stroke="#60a5fa"/>
+  <text x="685" y="310" class="label">YouTube comparison</text><text x="685" y="337" class="body">Objective-aware scores</text><text x="685" y="358" class="body">and evidence confidence</text>
+  <rect class="chip" x="430" y="396" width="205" height="92" fill="#eff6ff" stroke="#60a5fa"/>
+  <text x="450" y="428" class="label">Compliance audit</text><text x="450" y="455" class="body">Disclosures, hashtags,</text><text x="450" y="476" class="body">links, prohibited terms</text>
+  <rect class="chip" x="665" y="396" width="205" height="92" fill="#eff6ff" stroke="#60a5fa"/>
+  <text x="685" y="428" class="label">ROI simulator</text><text x="685" y="455" class="body">Conservative, expected,</text><text x="685" y="476" class="body">and optimistic scenarios</text>
+  <rect x="430" y="521" width="440" height="67" rx="12" fill="#ecfdf5" stroke="#10b981" stroke-width="1.5"/>
+  <text x="450" y="550" class="label">Browser-local analysis</text><text x="450" y="574" class="body">CSV data stays on the device unless the user saves a project.</text>
+  <rect x="430" y="610" width="440" height="54" rx="12" fill="#f1f5f9" stroke="#94a3b8"/>
+  <text x="450" y="643" class="body">PWA service worker excludes all /api/ responses from its cache.</text>
+
+  <text x="980" y="148" class="section">PROTECTED SERVER &amp; DATA SERVICES</text>
+  <rect class="dash" x="960" y="160" width="570" height="532"/>
+  <text x="990" y="194" class="small">TRUST BOUNDARY — CLOUD RUNTIME</text>
+
+  <rect class="node" x="990" y="220" width="245" height="105" fill="#fff7ed" stroke="#ea580c"/>
+  <text x="1015" y="258" class="label">YouTube connector</text><text x="1015" y="285" class="body">Validates channel IDs and</text><text x="1015" y="307" class="body">aggregates recent statistics</text>
+  <rect class="node" x="1270" y="220" width="230" height="105" fill="#fee2e2" stroke="#dc2626"/>
+  <text x="1295" y="258" class="label">YouTube Data API v3</text><text x="1295" y="285" class="body">Channels, uploads, and</text><text x="1295" y="307" class="body">recent public videos</text>
+  <rect x="1005" y="348" width="215" height="54" rx="10" fill="#fffbeb" stroke="#f59e0b"/>
+  <text x="1024" y="380" class="body">Restricted server-side API key</text>
+
+  <rect class="node" x="990" y="446" width="245" height="105" fill="#f5f3ff" stroke="#7c3aed"/>
+  <text x="1015" y="484" class="label">Authentication</text><text x="1015" y="511" class="body">Sign in with ChatGPT</text><text x="1015" y="533" class="body">provides the user identity</text>
+  <rect class="node" x="1270" y="446" width="230" height="105" fill="#ecfeff" stroke="#0891b2"/>
+  <text x="1295" y="484" class="label">Projects API</text><text x="1295" y="511" class="body">Checks ownership on every</text><text x="1295" y="533" class="body">read, write, and delete</text>
+  <rect class="node" x="1270" y="585" width="230" height="78" fill="#cffafe" stroke="#0891b2"/>
+  <ellipse cx="1300" cy="616" rx="15" ry="7" fill="none" stroke="#0891b2" stroke-width="2"/><path d="M1285 616v20c0 4 7 7 15 7s15-3 15-7v-20" fill="none" stroke="#0891b2" stroke-width="2"/>
+  <text x="1330" y="620" class="label">Cloudflare D1</text><text x="1330" y="644" class="body">Owner-scoped project JSON</text>
+
+  <path class="line" d="M320 226 H380 Q400 226 400 246"/>
+  <path class="line" d="M320 367 H400"/>
+  <path class="line" d="M320 500 H400"/>
+  <path class="line" d="M320 636 H400"/>
+  <path class="line" d="M900 330 H945 Q960 330 960 280 H990"/>
+  <path class="line" d="M1235 272 H1270"/>
+  <path class="line" d="M900 503 H990"/>
+  <path class="line" d="M1235 498 H1270"/>
+  <path class="line" d="M1385 551 V585"/>
+
+  <text x="70" y="758" class="section">DECISION OUTPUTS</text>
+  <path class="line" d="M650 692 V728"/>
+  <rect class="node" x="70" y="790" width="320" height="126" fill="#ecfdf5" stroke="#059669"/>
+  <text x="95" y="830" class="heading">Explainable shortlist</text><text x="95" y="860" class="body">0–100 score • component weights</text><text x="95" y="884" class="body">confidence • source • limitations</text>
+  <rect class="node" x="430" y="790" width="320" height="126" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="455" y="830" class="heading">Campaign evidence</text><text x="455" y="860" class="body">Compliance findings • risk signals</text><text x="455" y="884" class="body">ROI and ROAS sensitivity scenarios</text>
+  <rect class="node" x="790" y="790" width="320" height="126" fill="#f5f3ff" stroke="#7c3aed"/>
+  <text x="815" y="830" class="heading">Shareable reports</text><text x="815" y="860" class="body">CSV exports • print-ready PDF</text><text x="815" y="884" class="body">reproducible batch reports</text>
+  <rect class="node" x="1150" y="790" width="350" height="126" fill="#ecfeff" stroke="#0891b2"/>
+  <text x="1175" y="830" class="heading">Private workspaces</text><text x="1175" y="860" class="body">Authenticated saved projects</text><text x="1175" y="884" class="body">available only to their owner</text>
+  <path class="line" d="M650 728 H230 V790"/><path class="line" d="M650 728 H590 V790"/><path class="line" d="M650 728 H950 V790"/><path class="line" d="M1385 663 V755 H1325 V790"/>
+
+  <text x="70" y="964" class="small">Decision-support system: scores guide human review; they do not prove fraud or guarantee campaign outcomes.</text>
+  <text x="1530" y="964" text-anchor="end" class="small">InfluencerTrust AI • v1.0 architecture</text>
+</svg>

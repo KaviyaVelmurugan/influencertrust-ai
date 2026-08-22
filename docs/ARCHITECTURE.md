@@ -2,18 +2,9 @@
 
 ## System overview
 
-```mermaid
-flowchart LR
-    U[User browser or installed PWA] --> UI[Next.js dashboard]
-    UI --> CSV[Local CSV analysis]
-    UI --> YT[YouTube connector route]
-    YT --> API[YouTube Data API v3]
-    UI --> AUTH[Sign in with ChatGPT]
-    AUTH --> PROJECTS[Private projects route]
-    PROJECTS --> D1[(D1 project store)]
-    PY[Python analytics package] --> REPORTS[Reproducible CSV reports]
-    REPORTS --> UI
-```
+![InfluencerTrust AI system architecture](assets/influencertrust-ai-architecture.svg)
+
+The diagram separates browser-local analysis from protected server operations. The dashboard can analyze imported CSV data without uploading it, while live YouTube requests and saved projects cross a server trust boundary where credentials and ownership checks are enforced.
 
 ## Boundaries
 
